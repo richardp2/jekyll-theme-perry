@@ -1,0 +1,4 @@
+          <div class='post-nav'>{% if page.previous.url %}
+            <span class='alignleft'><a href='{{page.previous.url}}'><i class='fa fa-chevron-left'></i> {{ page.previous.title | truncatewords: 5 }}</a></span>{% endif %}{% if page.next.url %}
+            <span class='alignright'><a href='{{page.next.url}}'>{{ page.next.title | truncatewords: 5 }} <i class='fa fa-chevron-right'></i></a></span>{% endif %}
+          </div>
