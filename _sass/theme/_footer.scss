@@ -1,4 +1,12 @@
 
 footer[role='contentinfo'] {
     @extend %text-centre;
+    .site-meta {
+        small {
+            padding: 0 1em;
+            &:not(:first-child) {
+                border-left: 1px solid $colour-base;
+            }
+        }
+    }
 }

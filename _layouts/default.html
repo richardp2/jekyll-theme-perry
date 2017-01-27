@@ -1,4 +1,4 @@
-<!DOCTYPE html>{% capture title %}{% if page.title == 'Home' %} {{ site.name }} | {{ site.description }}{% else %}{{ page.title }} | {{ site.name }}{% endif %}{% endcapture %}{% if page.author %}{% assign auth = site.data.authors[page.author] %}{% else %}{% assign auth = site.data.authors[site.author] %}{% endif %}{% assign copyname = site.data.authors[site.author].name %}{% capture year %}{{ site.time | date: '%Y' }}{% endcapture %}{% capture copyright %}Copyright &copy; {% unless site.copyright.year and year == site.copyright.year %}{{ site.copyright.year }} - {% endunless %}{{ year }} {{ copyname }}{% endcapture %}
+<!DOCTYPE html>{% capture title %}{% if page.title == 'Home' %} {{ site.title }} | {{ site.description }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}{% endcapture %}{% if page.author %}{% assign auth = site.data.authors[page.author] %}{% else %}{% assign auth = site.data.authors[site.author] %}{% endif %}{% assign copyname = site.data.authors[site.author].name %}{% capture year %}{{ site.time | date: '%Y' }}{% endcapture %}{% capture copyright %}Copyright &copy; {% unless site.meta.copyright.year and year == site.meta.copyright.year %}{{ site.meta.copyright.year }} - {% endunless %}{{ year }} {{ copyname }}{% endcapture %}
 <html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml# article: http://ogp.me/ns/article#" lang='en-GB'>
     <head>
         <title>{{title}}</title>
@@ -11,7 +11,7 @@
 
         <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Lato:400,400i,900,900i&subset=latin-ext' rel='stylesheet'>
         <link rel='stylesheet' href='/assets/css/style.css'>
-        <link rel='alternate' href='{{site.url}}/feed.xml' type='application/rss+xml' title='{{ site.name }}'>
+        <link rel='alternate' href='{{site.url}}/feed.xml' type='application/rss+xml' title='{{ site.title }}'>
         <link rel='author' href='https://plus.google.com/{{auth.google}}'>
 
         <script defer src='/assets/scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js'></script>
@@ -21,7 +21,7 @@
 
     <body>
         <header role='banner' itemscope itemtype='//schema.org/WPHeader'>
-            <h1 class='site-title'>{% if site.logo_svg == true %}<object type='image/svg+xml' data='/assets/images/logo.svg' title='{{ site.title }}' name='logo'>{{ site.name }}</h1></object>{% else %}{{ site.name }}{% endif %}</h1>
+            <h1 class='site-title'>{% if site.logo %}{% if site.logo contains 'svg' %}<object type='image/svg+xml' data='{{ site.logo }}' title='{{ site.title }}' name='{{ site.title }} Logo'>{{ site.title }}</object>{% else %}<img src='{{ site.logo }}' title='{{ site.title }}' alt='{{ site.title }} Logo' />{% endif %}{% else %}{{ site.title }}{% endif %}</h1>
             {% if site.description %}<p class='site-description'>{{ site.description }}</p>{% endif %}
         </header>
 
@@ -67,9 +67,12 @@
                         <i class='fa fa-rss fa-stack-1x fa-inverse'></i>
                     </a>
                 </span>
-            </div>
-            <small class='copyright'>{{ copyright }}</small> &nbsp; &nbsp; | &nbsp; &nbsp; 
-            <small class='site-meta'>Powered by <a href='//jekyllrb.com/' title='Jekyll &bull; Simple, blog-aware, static sites'>Jekyll</a> &amp; Hosted at <a href='{{ site.hosting.link }}' title='{{ site.hosting.name }}'>{{ site.hosting.name }}</a></small>
+            </div>{% if site.meta %}
+            <span class='site-meta'>
+                {% if site.meta.copyright %}<small class='copyright'>{{ copyright }}</small>{% endif %}
+                {% if site.meta.powered-by %}<small>Powered by <a href='//jekyllrb.com/' title='Jekyll &bull; Simple, blog-aware, static sites'>Jekyll</a></small> {% endif %}
+                {% if site.meta.hosting %}<small>Hosted at <a href='{{ site.meta.hosting.link }}' title='{{ site.meta.hosting.name }}'>{{ site.meta.hosting.name }}</a></small>{% endif %}
+            </span>{% endif %}
         </footer><!-- #page-footer -->
             
         {% include foot-scripts.html %}
