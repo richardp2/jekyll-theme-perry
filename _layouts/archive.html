@@ -3,7 +3,7 @@ layout: default
 ---
 {% capture title %}
     {% case page.type %}
-        {% when 'tag' or 'category' %}{{ page.type | capitalize }}: {{ page.title }}
+        {% when 'tag' or 'category' %}{{ page.type | capitalize }}: {% if site.post_categories %}{{ site.post_categories[page.title].name }}{% else %}{{ page.title }}{% endif %}
         {% when 'year' %}Archives: {{ page.date | date: "%Y" }}
         {% when 'month' %}Archives: {{ page.date | date: "%B %Y" }}
         {% when 'day' %}Archvies: {{ page.date | date: "%d %b %Y" }}
