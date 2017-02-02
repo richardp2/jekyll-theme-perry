@@ -1,6 +1,14 @@
 
 footer[role='contentinfo'] {
     @extend %text-centre;
+    .social {
+        a {
+            @include opacity(0.3);
+            &:hover {
+                @include opacity(1);
+            }
+        }
+    }
     .site-meta {
         small {
             padding: 0 1em;

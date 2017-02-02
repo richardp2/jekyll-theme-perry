@@ -17,6 +17,13 @@
     border-radius: $radius;
 }
 
+@mixin opacity($value){
+    $IEValue: $value*100;
+    opacity: $value;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+    filter: alpha(opacity=$IEValue);
+}
+
 @mixin linear-gradient($first, $second, $third) {
     background: -moz-linear-gradient(left,  $first, $second, $third); /* FF3.6+ */
     background: -webkit-gradient(linear, 0 0, 100% 0, from($first), to($third), color-stop(50%, $second)); /* Chrome,Safari4+ */
