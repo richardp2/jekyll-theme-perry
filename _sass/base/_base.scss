@@ -39,6 +39,15 @@ footer[role='contentinfo'] {
         padding: 0 2em 2em;
 }
 
+figure {
+    background: rgba($colour-base, 0.25);
+    padding: 0.25em;
+    @include rounded();
+    img {
+        @include rounded(0.75em);
+    }
+}
+
 table {
     border-collapse: collapse;
     margin: 0.625em 0;

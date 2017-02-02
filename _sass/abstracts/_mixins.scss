@@ -24,6 +24,14 @@
     filter: alpha(opacity=$IEValue);
 }
 
+@mixin transition ($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
 @mixin linear-gradient($first, $second, $third) {
     background: -moz-linear-gradient(left,  $first, $second, $third); /* FF3.6+ */
     background: -webkit-gradient(linear, 0 0, 100% 0, from($first), to($third), color-stop(50%, $second)); /* Chrome,Safari4+ */

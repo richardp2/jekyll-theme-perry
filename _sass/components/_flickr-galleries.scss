@@ -13,33 +13,29 @@
     span {
         display: inline-block;
         position: relative;
-        .flickrlink {
-            display: none;
-            width: 2em;
-            height: 1em;
-            background: transparent url(/assets/images/flickr.png) no-repeat left top;
-            position: absolute;
-            right: 0.5em;
-            bottom: 0.9em;
-            opacity: .5;
-            -webkit-transition: opacity 0.2s ease-in-out;
-            -moz-transition: opacity 0.2s ease-in-out;
-            -o-transition: opacity 0.2s ease-in-out;
-            -ms-transition: opacity 0.2s ease-in-out;
-            transition: opacity 0.2s ease-in-out;
-            &:hover {
-                opacity:1;
-            }
+    }
+    .flickrlink {
+        display: none;
+        width: 2em;
+        height: 1em;
+        background: transparent url(/assets/images/flickr.png) no-repeat left top;
+        position: absolute;
+        right: 0.5em;
+        bottom: 0.9em;
+        @include opacity(0.5);
+        @include transition(opacity 0.2s ease-in-out);
+        &:hover {
+            @include opacity(1);
         }
-        &:hover .flickrlink {
-            display: block
-        }
-        img {
-            max-width: 100%;
-            padding: 0.5em;
-            .summary & {
-                padding: 0.2em;
-            }
+    }
+    &:hover .flickrlink {
+        display: block
+    }
+    img {
+        max-width: 100%;
+        padding: 0.5em;
+        .summary & {
+            padding: 0.2em;
         }
     }
     &.summary {
