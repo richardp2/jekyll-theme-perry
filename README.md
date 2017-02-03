@@ -168,6 +168,32 @@ to create a page to list all posts in the series in chronological order create a
 line in the frontmatter and a layout of `series`. Post summaries for each post in the series will
 then be included at the bottom of the page displayed with the oldest post first.
 
+### Google Analytics
+
+You can now make use of Google Analytics by including the following in your `_config.yml` file:
+
+```yaml
+google:
+  analytics: UA-XXXXXXXX-X
+```
+
+This will only be included in the site if you define the `JEKYLL_ENV` as `production` before
+building your site. For more details, see the [Jekyll Website][env]
+
+### Disqus Comments
+
+Commenting is enabled on this site via [Disqus][dis]. Before you can use comments on your site, you
+will need to sign up for a [Disqus][dis] account and then include your shortname in your
+`_config.yml` file as follows:
+
+```yaml
+disqus:
+  shortname: xxxxxx
+```
+
+Again, this will only be included in the site if you define the `JEKYLL_ENV` as `production` before
+building your site. For more details, see the [Jekyll Website][env]
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at 
@@ -200,3 +226,5 @@ The theme is available as open source under the terms of the [MIT License][mit].
 [contrib]: //contributor-covenant.org
 [mit]: //opensource.org/licenses/MIT
 [ps]: #post-series
+[env]: //jekyllrb.com/docs/configuration/#specifying-a-jekyll-environment-at-build-time
+[dis]: //disqus.com
