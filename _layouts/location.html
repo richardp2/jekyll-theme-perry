@@ -1,0 +1,9 @@
+---
+layout: page
+---
+
+<ul id='archive'>{% assign sorted_posts = (site.posts | where: "locations" , page.location) %}
+{% for post in sorted_posts %}
+    {% include archives.html %}
+{% endfor %}
+</ul>
