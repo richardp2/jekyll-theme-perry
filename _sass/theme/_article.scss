@@ -18,6 +18,12 @@ article {
         clear: both;
     }
 
+    .post-thumb {
+        height: 150px;
+        width: 150px;
+        object-fit: cover;
+    }
+
     &.summary, &.page, &.series {
         &::after {
             @extend %divider-gradient-top;
@@ -43,7 +49,7 @@ article {
 
     &.format-image {
         @extend %media;
-        section[itemprop=articleBody] .alignleft {
+        section[itemprop=articleBody] img {
             display: block;
             float: none;
             margin: 0.5em auto;
