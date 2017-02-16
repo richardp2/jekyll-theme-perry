@@ -1,4 +1,4 @@
-// Avoid `console` errors in browsers that lack a console.
+// Avoid `console` errors in browsers that lack a console. (HTML5 Boilerplate)
 (function() {
     var method;
     var noop = function () {};
@@ -21,12 +21,8 @@
     }
 }());
 
-
+$.noConflict();
 jQuery(document).ready(function($) {
-  //$('.main-menu').slicknav({
-  //  label: 'Menu',
-  //  allowParentLinks: true
-  //});
   
   $('.flickr').each(function(i){
     $(this).find('a.image').attr('rel','gallery'+i);
