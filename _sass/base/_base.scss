@@ -39,6 +39,14 @@ footer[role='contentinfo'] {
         padding: 0 2em 2em;
 }
 
+blockquote {
+    background: $colour-lightgrey;
+    border-left: 0.25em solid $colour-highlight;
+    color: $colour-darkgrey;
+    margin: 0 2em;
+    padding: 0 1em;
+}
+
 figure {
     background: rgba($colour-base, 0.25);
     padding: 0.25em;
