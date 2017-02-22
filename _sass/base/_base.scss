@@ -14,18 +14,12 @@ html {
 } 
 
 a {
-    border-bottom: 1px solid $colour-lightgrey;
     color: $colour-base;
-    margin-bottom: -1px;
     text-decoration: none;
-
-    &.image {
-        border: none;
-    }
 
     &:hover,
     &:active, {
-        border-bottom: 1px solid $colour-highlight;    
+        border-bottom: 1px solid $colour-highlight !important;    
     }
 }
 

@@ -79,6 +79,10 @@ article {
 
     section[itemprop=articleBody] {
         padding: 1em 0;
+        a {
+            border-bottom: 1px solid $colour-lightgrey;
+            margin-bottom: -1px;
+        }
     }
 
     .footnotes {
