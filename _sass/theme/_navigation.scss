@@ -7,10 +7,13 @@ nav {
     width: 100%;
 
     .current-page {
-        background-color: $colour-lightgrey;
+        background: $colour-lightgrey;
+        border: 2px solid $colour-highlight;
+        margin-bottom: -2px;
     }
 
     a {
+        border: none;
         display: inline-block;
         padding: 0.5em;
         width: 5.3em;

@@ -7,7 +7,7 @@
     margin: 0 auto;
     padding: 0;
     text-align: left;
-    a:hover {
+    a, a:hover {
         border: none;
     }
     span {
@@ -21,14 +21,14 @@
         background: transparent url(/assets/images/flickr.png) no-repeat left top;
         position: absolute;
         right: 0.5em;
-        bottom: 0.9em;
+        bottom: 1em;
         @include opacity(0.5);
         @include transition(opacity 0.2s ease-in-out);
         &:hover {
             @include opacity(1);
         }
     }
-    &:hover .flickrlink {
+    span:hover .flickrlink {
         display: block
     }
     img {
