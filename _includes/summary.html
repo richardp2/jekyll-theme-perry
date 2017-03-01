@@ -26,7 +26,7 @@
                 {% else %}
                     {% if post.video %}<iframe width='560' height='315' src='//www.youtube.com/embed/{{post.video}}?rel=0' frameborder='0' allowfullscreen itemProp='video'></iframe><br/>{% endif %}
                     {% if post.image %}<img src="{{ post.image }}" title="{{ post.title }}" alt="{{ post.title }}"{% if post.format != 'image' %} class='alignleft post-thumb'{% endif %} />{% endif %}
-                    {{ post.content | markdownify | strip_html | truncatewords: 125 }}
+                    {% if post.description %}{{ post.description }}{% else %}{{ post.content | markdownify | strip_html | truncatewords: 125 }}{% endif %}
                 {% endif %}
                 </section>
                         
