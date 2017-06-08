@@ -1,6 +1,6 @@
 <!DOCTYPE html>{% capture title %}{% if page.title == 'Home' %} {{ site.title }} | {{ site.description }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}{% endcapture %}{% if page.author %}{% assign auth = site.data.authors[page.author] %}{% else %}{% assign auth = site.data.authors[site.author] %}{% endif %}{% assign copyname = site.data.authors[site.author].name %}{% capture year %}{{ site.time | date: '%Y' }}{% endcapture %}{% capture copyright %}Copyright &copy; {% unless site.meta.copyright.year and year == site.meta.copyright.year %}{{ site.meta.copyright.year }} - {% endunless %}{{ year }} {{ copyname }}{% endcapture %}
-<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml# article: http://ogp.me/ns/article#" lang='en-GB'>
-    <head>
+<html xmlns='http://www.w3.org/1999/xhtml' prefix='og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml# article: http://ogp.me/ns/article#' lang='en-GB'>
+    <head prefix='og: http://ogp.me/ns#'>
         <title>{{title}}</title>
 
         <meta charset='utf-8'>
