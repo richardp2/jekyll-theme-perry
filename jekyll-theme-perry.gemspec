@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-perry"
-  spec.version       = "0.1.11"
+  spec.version       = "0.1.12"
   spec.authors       = ["Richard Perry"]
   spec.email         = ["gems@perrymail.me.uk"]
 
   spec.summary       = "Custom Jekyll theme for my personal homepage"
-  spec.homepage      = "http://richard.perry-online.me.uk/"
+  spec.homepage      = "https://richard.perry-online.me.uk/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^(assets|_layouts|_includes|_sass|LICENSE|README)}i) }
