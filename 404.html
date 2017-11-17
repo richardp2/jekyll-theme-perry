@@ -1,0 +1,63 @@
+---
+layout: null
+title: "404"
+date: 2013-11-17 21:10:00 +0000
+permalink: /404.html
+---
+<!DOCTYPE html>{% assign auth = site.data.authors[site.author] %}{% assign copyname = site.data.authors[site.author].name %}{% capture year %}{{ site.time | date: '%Y' }}{% endcapture %}{% capture copyright %}Copyright &copy; {% unless site.meta.copyright.year and year == site.meta.copyright.year %}{{ site.meta.copyright.year }} - {% endunless %}{{ year }} {{ copyname }}{% endcapture %}
+<html xmlns='http://www.w3.org/1999/xhtml' prefix='og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml# article: http://ogp.me/ns/article#' lang='en-GB'>
+    <head prefix='og: http://ogp.me/ns#'>
+        <title>{{ page.title }} | {{ site.title }}</title>
+
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <meta http-equiv='X-Clacks-Overhead' content='GNU Terry Pratchett'>
+        <meta name='author' content='{{auth.name}}'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+        <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Lato:400,400i,900,900i&subset=latin-ext' rel='stylesheet'>
+        <link rel='stylesheet' href='/assets/css/style.css'>
+        <link rel='alternate' href='{{site.url}}/feed.xml' type='application/rss+xml' title='{{ site.title }}'>
+        <link rel='author' href='https://plus.google.com/{{auth.google}}'>
+
+        <script defer src='/assets/scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js'></script>
+        {% seo title=false %}
+    </head>
+
+    <body>
+        <header class='aligncentre' itemscope itemtype='//schema.org/WPHeader'>
+            <p>&nbsp;</p>
+            <h1>{% if site.logo %}{% if site.logo contains 'svg' %}<object type='image/svg+xml' data='{{ site.logo }}' title='{{ site.title }}' name='{{ site.title }} Logo'>{{ site.title }}</object>{% else %}<img src='{{ site.logo }}' title='{{ site.title }}' alt='{{ site.title }} Logo' />{% endif %}{% else %}{{ site.title }}{% endif %}</h1>
+
+            <h2>{{page.title}}</h2>
+            <h3>The page you're looking for cannot be found</h3>
+
+            <p>Click on one of the links below to get back to the main page, or go through the archives below them to find the post you were trying to read</p>
+
+            <ul style='list-style: none; padding: 0;'>{% for link in site.data.links %}
+                <li itemprop='name' style='display: inline;'>
+                    <a href="{{ link.url }}" title="{{ link.title }}" itemprop='url'>{{ link.title }}</a>
+                </li>{% unless link.title == site.data.links.last.title %}&nbsp; &nbsp; | &nbsp; &nbsp; {% endunless %}
+            {% endfor %}</ul>
+        </header>
+
+        <main itemscope itemtype='//schema.org/Blog'>
+            <h3>Archives</h3>
+            <ul id='archive'>
+            {% for post in site.posts %}
+                {% include archives.html %}
+            {% endfor %}
+            </ul>
+        </main><!-- #main-content -->
+                
+        <footer class='aligncentre' role='contentinfo' itemscope itemtype='//schema.org/WPFooter'>
+            {% if site.meta %}<span class='site-meta'>
+                {% if site.meta.copyright %}<small class='copyright'>{{ copyright }}</small>{% endif %}
+                {% if site.meta.powered-by %}<small>Powered by <a href='//jekyllrb.com/' title='Jekyll &bull; Simple, blog-aware, static sites'>Jekyll</a></small> {% endif %}
+                {% if site.meta.hosting %}<small>Hosted at <a href='{{ site.meta.hosting.link }}' title='{{ site.meta.hosting.name }}'>{{ site.meta.hosting.name }}</a></small>{% endif %}
+            </span>{% endif %}
+        </footer><!-- #page-footer -->
+            
+        {% include foot-scripts.html %}
+    </body>
+</html>
