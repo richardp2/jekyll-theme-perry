@@ -170,11 +170,13 @@ then be included at the bottom of the page displayed with the oldest post first.
 
 ### Google Analytics
 
-You can now make use of Google Analytics by including the following in your `_config.yml` file:
+You can now make use of Google Analytics and/or Google Analytics 4 by including the following in your 
+`_config.yml` file:
 
 ```yaml
 google:
   analytics: UA-XXXXXXXX-X
+  analytics4: G-XXXXXXXXXX
 ```
 
 This will only be included in the site if you define the `JEKYLL_ENV` as `production` before
